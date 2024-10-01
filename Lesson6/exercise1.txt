@@ -1,0 +1,87 @@
+                                        Задание 1
+public class Main {
+    public static void main(String[] args) {
+        Circle circle = new Circle();
+        Square square = new Square();
+        Rectangle rectangle = new Rectangle();
+        Ellipse ellipse = new Ellipse();
+
+        circle.drawCircle();        ModelQ testCar = new ModelQ();
+
+        System.out.println("Характеристики модели:");
+        System.out.println("Ускорение: " + testCar.acceleration + " км/(ч*с)");
+        System.out.println("Максимальная скорость: " + testCar.maxSpeed + " км/ч");
+        // Символ \n позволяет оставлять пустую строку в консоли
+        System.out.println("\nНачало теста!");
+        System.out.println("Количество колёс: " + testCar.wheelsNumber);
+
+        testCar.turnTo("Север");
+        System.out.println("Направление: " + testCar.direction);
+        System.out.println("Едем на автопилоте:");
+        for (int second = 0; second < 5; second++) {
+            testCar.accelerateByAutopilot();
+        }
+        System.out.println("Скорость Q спустя 5с на автопилоте: " + testCar.speed + " км/ч");
+        for (int second = 0; second < 5; second++) {
+            testCar.accelerateByAutopilot();
+        }
+        System.out.println("Скорость Q спустя ещё 5с на автопилоте: " + testCar.speed + " км/ч");
+
+        System.out.println("Переходим в ручной режим:");
+        for (int second = 0; second < 2; second++) {
+            testCar.accelerate();
+        }
+        System.out.println("Скорость Q спустя 2с в ручном режиме: " + testCar.speed + " км/ч");
+        System.out.println("Проверяем торможение:");
+        int brakingTime = 0;
+        while (testCar.speed > 0) {
+            testCar.brake();
+            brakingTime++;
+        }
+        System.out.println("Время торможения до полной остановки: " + brakingTime + "c");
+        square.drawSquare();
+        rectangle.drawRectangle();
+        ellipse.drawCircle();
+        ellipse.circleToEllipse();
+    }
+}
+
+class Figure {
+    public void drawCircle() {
+        System.out.println("Рисуем круг");
+    }
+
+    public void drawSquare() {
+        System.out.println("Рисуем квадрат");
+    }
+
+    public void drawRectangle() {
+        System.out.println("Рисуем прямоугольник");
+    }
+}
+
+class Circle extends Figure{
+}
+
+class Square extends Figure{
+}
+
+class Rectangle extends Figure{
+}
+
+class Ellipse extends Circle{
+    public void circleToEllipse() {
+        System.out.println("Превращаем круг в овал");
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
